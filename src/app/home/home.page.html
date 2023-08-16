@@ -1,20 +1,76 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center" class="header" >
+      Categorias
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+ <ion-grid>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-row>
+    <ion-col>
+      <ion-card class="banner" color="whitezin">
+        <img src="../../assets/img/dripstore.png">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-item lines="none" color="dark" style="border-radius: 5px;">
+    <ion-label class="titulo-promo" class="ion-text-center">Confira nossos produtos em promoção!</ion-label>
+  </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <ion-card color="dark" class="borda" routerLink="/roupas">
+        <img
+        src="../../assets/img/goku.png"
+        alt="">
+        <ion-item lines="full" color="dark" class="borda">
+          Roupas Estilosas
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
+    <ion-col>
+      <ion-card color="dark" class="borda" routerLink="/acessorios">
+        <img
+        src="../../assets/img/acessorio.png"
+        alt="">
+        <ion-item lines="full" color="dark" class="borda">
+          Acessórios  
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+
+    <ion-col>
+      <ion-card color="dark" class="borda" routerLink="/canecas">
+        <img
+        src="../../assets/img/caneca.png"
+        alt="">
+        <ion-item lines="full" color="dark" class="borda">
+          Canecas  
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
+    <ion-col>
+      <ion-card color="dark" class="borda" routerLink="/figures">
+        <img
+        src="../../assets/img/figure.png"
+        alt="">
+        <ion-item lines="full" color="dark" class="borda">
+          Figures
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
+
+  </ion-row>
+ </ion-grid>
 </ion-content>
