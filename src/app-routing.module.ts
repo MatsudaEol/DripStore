@@ -12,20 +12,20 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'roupas',
-    loadChildren: () => import('./roupas/roupas.module').then( m => m.RoupasPageModule)
+    path: 'ofertas',
+    loadChildren: () => import('./promocoes/promocoes.module').then( m => m.PromocoesPageModule)
   },
   {
-    path: 'acessorios',
-    loadChildren: () => import('./acessorios/acessorios.module').then( m => m.AcessoriosPageModule)
+    path: 'zoro',
+    loadChildren: () => import('./zoro/zoro.module').then( m => m.ZoroPageModule)
   },
   {
-    path: 'canecas',
-    loadChildren: () => import('./canecas/canecas.module').then( m => m.CanecasPageModule)
+    path: 'berserk',
+    loadChildren: () => import('./berserk/berserk.module').then( m => m.BerserkPageModule)
   },
   {
-    path: 'figures',
-    loadChildren: () => import('./figures/figures.module').then( m => m.FiguresPageModule)
+    path: 'katana',
+    loadChildren: () => import('./katana/katana.module').then( m => m.KatanaPageModule)
   },
 ];
 
