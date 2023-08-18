@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>Button</ion-back-button>
+    </ion-buttons>
+    <ion-title>Promocoes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item *ngFor="let produto of listaProdutos" lines="full" color="dark" class="borda">
+    <ion-label>
+      <h2>{{ produto.nome }}</h2>
+      <p>{{ produto.descricao }}</p>
+    </ion-label>
+    <ion-button expand="block" slot="end" color="blackzinho">
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+    </ion-button>
+    <ion-badge color="danger">R$ {{ produto.valor }},00</ion-badge>
+  </ion-item>
+  
+
+</ion-content>
