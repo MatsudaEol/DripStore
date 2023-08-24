@@ -14,10 +14,10 @@
       <h2>{{ produto.nome }}</h2>
       <p>{{ produto.descricao }}</p>
     </ion-label>
-    <ion-button expand="block" slot="end" color="blackzinho">
+    <ion-button expand="block" slot="end" color="blackzinho" (click)="addProdutoCarrinho(produto)">
       <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
     </ion-button>
-    <ion-badge color="danger">R$ {{ produto.valor }},00</ion-badge>
+    <ion-badge color="danger">R$ {{ produto.valor | number:'1.2-2' }}</ion-badge>
   </ion-item>
   
 

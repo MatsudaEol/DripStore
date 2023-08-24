@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { PromocoesPage } from './promocoes.page';
 
 describe('PromocoesPage', () => {
@@ -11,7 +11,7 @@ describe('PromocoesPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('should create', () => { 
     expect(component).toBeTruthy();
   });
 });

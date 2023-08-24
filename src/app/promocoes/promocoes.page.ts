@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BdtempService} from '../services/bdtemp.service'
 
 @Component({
   selector: 'app-promocoes',
@@ -35,9 +36,12 @@ export class PromocoesPage implements OnInit {
   }
   
 ] ;
-  constructor() { }
+  constructor(public bdtemp: BdtempService) {}
 
   ngOnInit() {
   }
 
+  addProdutoCarrinho(produto:any){
+    this.bdtemp.addProdutoCarrinho(produto);
+  }
 }
