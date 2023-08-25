@@ -4,12 +4,23 @@
       <ion-back-button>Button</ion-back-button>
     </ion-buttons>
     <ion-title>Promocoes</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrinho"> 
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="warning">{{qtdeItensCarrinho}}</ion-badge>
+      </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
   <ion-item *ngFor="let produto of listaProdutos" lines="full" color="dark" class="borda">
+    <ion-thumbnail slot="start">
+      <img [src]="produto.foto"/>
+    </ion-thumbnail>
     <ion-label>
       <h2>{{ produto.nome }}</h2>
       <p>{{ produto.descricao }}</p>

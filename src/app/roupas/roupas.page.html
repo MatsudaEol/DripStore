@@ -1,107 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button>Button</ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab2">Button</ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">Roupas Estilosas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar animated="true" placeholder="Pesquise o seu produto" color="dark" mode="ios"></ion-searchbar>
+  <ion-searchbar animated="true" placeholder="Pesquise o seu produto" color="dark" mode="ios" (ionInput)="onSearchChange($event)"></ion-searchbar>
 
   <ion-list>
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/goku.png" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Moletom Goku Balenciaga</h2>
-        <p>Moletom do Goku Balenciaga Oficial</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/lee.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Blusa Adidas Lee</h2>
-        <p>Blusa original Adidas Edição Limitada</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/kilua.jfif" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Blusa Killua Nike</h2>
-        <p>Blusa 100% algodão Padrão Nike</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/giorno.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Jaqueta Giorno Oficial Autografada</h2>
-        <p>Jaqueta Autografada Original Giorno Giovanna</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/kira.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Terno Kira + Gravata Killer Queen</h2>
-        <p>Terno Kira Ajustado + Gravata Killer Queen 100% algodão</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/dripgoku.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Moletom Drip Goku</h2>
-        <p>Ele tem o molho</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/nezuko.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Mascara Nezuko Prada</h2>
-        <p>Mascara Prada Certificada Luxo</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
     
+    <ion-item *ngFor="let roupa of filteredRoupas" line="full" color="dark" class="borda">
+      <ion-thumbnail slot="start">
+        <img [src]="roupa.imagem" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ roupa.nome }}</h2>
+        <p>{{ roupa.descricao }}</p>
+      </ion-label>
+      <ion-button expand="block" slot="end" color="blackzinho">
+        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
+      </ion-button>
+      <ion-badge [color]="roupa.promocao ? 'danger' : 'dark'">R$ {{ roupa.valor }},00</ion-badge>
+    </ion-item>
 
   </ion-list>
 </ion-content>

@@ -1,107 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button>Button</ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab2">Button</ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">Figures</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar animated="true" placeholder="Pesquise o seu produto" color="dark" mode="ios"></ion-searchbar>
+  <ion-searchbar animated="true" placeholder="Pesquise o seu produto" color="dark" mode="ios" (ionInput)="onSearchChange($event)"></ion-searchbar>
 
   <ion-list>
-    <ion-item line="full" color="dark" class="borda">
+    <ion-item *ngFor="let figure of filteredFigures" line="full" color="dark" class="borda">
       <ion-thumbnail slot="start">
-        <img src="../../assets/img/figurenezuko.webp" />
+        <img [src]="figure.imagem" />
       </ion-thumbnail>
       <ion-label>
-        <h2>Figure Nezuko</h2>
-        <p>Ela tem sono</p>
+        <h2>{{ figure.nome }}</h2>
+        <p>{{ figure.descricao }}</p>
       </ion-label>
       <ion-button expand="block" slot="end" color="blackzinho">
         <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
       </ion-button>
+      <ion-badge [color]="figure.promocao ? 'danger' : 'dark'">R$ {{ figure.valor }},00</ion-badge>
     </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/figuredra.webp" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Figure Vegeta</h2>
-        <p>Terrivel contra Insetos</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/figurelaw.webp" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Figure Law</h2>
-        <p>Feita com o Corazon</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/figurekaka.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Figura Kakashi</h2>
-        <p>Não é uma cópia</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/figuresal.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Figure Inumaki</h2>
-        <p>Salmão</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/figurezoro.webp" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Figure Zoro</h2>
-        <p>Ela se perdeu no caminho</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-item line="full" color="dark" class="borda">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/figureed.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Figure Edward</h2>
-        <p>Não é nada baixinha</p>
-      </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
-        <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
-      </ion-button>
-    </ion-item>
-    
-
   </ion-list>
 </ion-content>
