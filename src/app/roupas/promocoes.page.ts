@@ -55,10 +55,10 @@ export class PromocoesPage implements OnInit {
 
   buscarDadosCarrinho() {
     this.qtdeItensCarrinho = this.bdtemp.buscar('qtdeItensCarrinho');
-  }
 
-  ionViewWillEnter() {
-    this.buscarDadosCarrinho();
   }
   
+  ionViewDidEnter() {
+    this.buscarDadosCarrinho(); // Atualiza automaticamente ao entrar na página
+  }
 }

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CarrinhoPage } from './carrinho.page';
+import { async } from '@angular/core/testing';
 
 describe('CarrinhoPage', () => {
   let component: CarrinhoPage;

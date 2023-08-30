@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BdtempService } from '../services/bdtemp.service';
 
 @Component({
   selector: 'app-roupas',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./roupas.page.scss'],
 })
 export class RoupasPage implements OnInit {
+
+  qtdeItensCarrinho = 0;
 
   listaRoupas = [
     {
@@ -60,7 +63,7 @@ export class RoupasPage implements OnInit {
   ];
 
   filteredRoupas = this.listaRoupas
-  constructor() { }
+  constructor(public bdtemp:BdtempService ) { }
 
   ngOnInit() {
   }
@@ -72,4 +75,19 @@ export class RoupasPage implements OnInit {
              roupa.descricao.toLowerCase().includes(searchTerm);
     });
   }
+
+  addProdutoCarrinho(produto: any) {
+    this.bdtemp.addProdutoCarrinho(produto);
+    this.buscarDadosCarrinho();
+  }
+
+  buscarDadosCarrinho() {
+    this.qtdeItensCarrinho = this.bdtemp.buscar('qtdeItensCarrinho');
+
+  }
+  
+  ionViewWillEnter() {
+    this.buscarDadosCarrinho();
+  }
+  
 }

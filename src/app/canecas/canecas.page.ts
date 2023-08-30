@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BdtempService } from '../services/bdtemp.service';
 
 @Component({
   selector: 'app-canecas',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canecas.page.scss'],
 })
 export class CanecasPage implements OnInit {
+
+  qtdeItensCarrinho = 0;
 
   listaCanecas = [
     {
@@ -61,7 +64,7 @@ export class CanecasPage implements OnInit {
 
   filteredCanecas = this.listaCanecas;
     
-  constructor() { }
+  constructor(private bdtemp: BdtempService) { }
 
   ngOnInit() {
   }
@@ -73,4 +76,19 @@ export class CanecasPage implements OnInit {
              caneca.descricao.toLowerCase().includes(searchTerm);
     });
   }
+  
+  addProdutoCarrinho(produto: any) {
+    this.bdtemp.addProdutoCarrinho(produto);
+    this.buscarDadosCarrinho();
+  }
+
+  buscarDadosCarrinho() {
+    this.qtdeItensCarrinho = this.bdtemp.buscar('qtdeItensCarrinho');
+
+  }
+  
+  ionViewWillEnter() {
+    this.buscarDadosCarrinho();
+  }
+  
 }

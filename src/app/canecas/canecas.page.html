@@ -1,9 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab2">Button</ion-back-button>
+      <ion-back-button>Button</ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">canecas Estilosas</ion-title>
+      
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrinho"> 
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="blackzinho">{{qtdeItensCarrinho}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +28,7 @@
         <h2>{{ caneca.nome }}</h2>
         <p>{{ caneca.descricao }}</p>
       </ion-label>
-      <ion-button expand="block" slot="end" color="blackzinho">
+      <ion-button expand="block" slot="end" color="blackzinho" (click)="addProdutoCarrinho(caneca)">
         <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
       </ion-button>
       <ion-badge [color]="caneca.promocao ? 'danger' : 'dark'">R$ {{ caneca.valor }},00</ion-badge>

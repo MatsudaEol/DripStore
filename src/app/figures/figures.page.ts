@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BdtempService } from '../services/bdtemp.service'
 
 @Component({
   selector: 'app-figures',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiguresPage implements OnInit {
 
+  qtdeItensCarrinho = 0;
+
   listaFigures = [
     {
       nome: "Figure Nezuko",
       descricao: "Ela tem sono",
       valor: 225, 
-      imagem: "../../assets/img/figurenezuko.webp",
+      imagem: "assets/img/figurenezuko.webp",
       promocao: false
     },
     {
@@ -61,7 +64,7 @@ export class FiguresPage implements OnInit {
 
   filteredFigures = this.listaFigures;
   
-  constructor() { }
+  constructor(private bdtemp: BdtempService) { }
 
   ngOnInit() {
   }
@@ -73,4 +76,19 @@ export class FiguresPage implements OnInit {
              figure.descricao.toLowerCase().includes(searchTerm);
     });
   }
+  
+  addProdutoCarrinho(produto: any) {
+    this.bdtemp.addProdutoCarrinho(produto);
+    this.buscarDadosCarrinho();
+  }
+
+  buscarDadosCarrinho() {
+    this.qtdeItensCarrinho = this.bdtemp.buscar('qtdeItensCarrinho');
+
+  }
+  
+  ionViewWillEnter() {
+    this.buscarDadosCarrinho();
+  }
+  
 }

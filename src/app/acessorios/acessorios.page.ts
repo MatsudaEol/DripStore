@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BdtempService } from '../services/bdtemp.service';
 
 @Component({
   selector: 'app-acessorios',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acessorios.page.scss'],
 })
 export class AcessoriosPage implements OnInit {
+
+  qtdeItensCarrinho = 0;
 
   listaAcessorios = [
     {
@@ -61,7 +64,7 @@ export class AcessoriosPage implements OnInit {
 
   filteredAcessorios = this.listaAcessorios
 
-  constructor() { }
+  constructor(private bdtemp: BdtempService) { }
 
   ngOnInit() {
   }
@@ -73,4 +76,19 @@ export class AcessoriosPage implements OnInit {
              acessorio.descricao.toLowerCase().includes(searchTerm);
     });
   }
+
+  addProdutoCarrinho(produto: any) {
+    this.bdtemp.addProdutoCarrinho(produto);
+    this.buscarDadosCarrinho();
+  }
+
+  buscarDadosCarrinho() {
+    this.qtdeItensCarrinho = this.bdtemp.buscar('qtdeItensCarrinho');
+
+  }
+  
+  ionViewWillEnter() {
+    this.buscarDadosCarrinho();
+  }
+  
 }
