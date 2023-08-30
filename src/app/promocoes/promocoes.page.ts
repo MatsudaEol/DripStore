@@ -15,31 +15,31 @@ export class PromocoesPage implements OnInit {
       nome: "Moletom Goku Balenciaga",
       descricao: "Moletom do Goku Balenciaga Oficial",
       valor: 950,
-      foto: 'assets/img/goku.png'
+      imagem: 'assets/img/goku.png'
     },
     {
       nome: "Brincos Hanafuda",
       descricao: "Ideal para dias de sol",
       valor: 40,
-      foto: 'assets/img/brincokimetsu.jpg'
+      imagem: 'assets/img/brincokimetsu.jpg'
     },
     {
       nome: "Caneca One Piece",
       descricao: "Perfeita para longas viagens",
       valor: 60,
-      foto: 'assets/img/canecaone.png'
+      imagem: 'assets/img/canecaone.png'
     },
     {
       nome: "Caneca Tokyo Ghoul",
       descricao: "Aceita apenas café",
       valor: 60,
-      foto: 'assets/img/canecatg.png'
+      imagem: 'assets/img/canecatg.png'
     },
     {
       nome: "Figure Nezuko",
       descricao: "Ela tem sono",
       valor: 230,
-      foto: 'assets/img/figurenezuko.webp'
+      imagem: 'assets/img/figurenezuko.webp'
     }
 
   ];
